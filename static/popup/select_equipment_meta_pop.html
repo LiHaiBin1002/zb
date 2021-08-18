@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    </style>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".contact>img").mouseover(function(){
+            $(".content").show();
+            $(".contact>img").mouseout(function(){
+                $(".content").hide();
+            });
+        });
+    })
+    </script>
+</head>  
+<body>
+    <!-- 筛选设备元数据 -->
+    <div class="popup-Box" id="shaixuanequipment_meta" style="width:1000px;overflow: visible;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                        <strong class="popup-header—strong">筛选设备元数据</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel" onclick='cancel_click()'>
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight" style="overflow: visible;">
+                <div class="showSelect" >
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center" style='width:8%'>
+                            <label>品牌</label>
+                        </div>
+                        <div class="col-xs-2" >
+                            <select class="form-control" id="brand6" name="brand6" onchange="change_equip_search_select(1)">
+                               <option value=''>请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center" style='width:8%'>
+                            <label>类型</label>
+                        </div>
+                        <div class="col-xs-2" >
+                            <select class="form-control" id="type6" name="type6" onchange="change_equip_search_select(2)">
+                                <option value=''>请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center" style='width:8%'>
+                            <label>型号</label>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "model_write6" name="model_write6" placeholder="请选择" autocomplete="off" oninput="input_oninput('model_write6','model6',Filling_model)" onclick="input_onclick('model6')">
+                                 <select class="form-control_select" id="model6" name="model6" style="position:absolute;" onchange="select_onchange('model_write6','model6');change_equip_search_select(3)">
+                                        <option value=''>请选择</option>
+                                    </select>
+                                <!-- <input class="form-control" type = "text" id = "model6" name="model6" > -->
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-center contact" style='width:6%'>
+                            <img src="/static/img/save.png" width="20" height="20" style="vertical-align:middle; margin-bottom:5px;" onclick="equipment_meta_save()">
+                        </div>
+                        <div class=" col-xs-1 text-center content" style="width:8%;color:rgb(240,185,20);font-weight:bold;display: none;width:100px;height:35px;border-radius:9px;padding:2px;position:absolute;top:88px;left:897px;background-color:#F0F0F0;z-index:559"> <label>保存为新设备</label> </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center" style="text-align:center;">
+                            <button class="btn-small btn-primary" onclick="chooseinfo_equipment_meta()">筛选</button>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <button class="btn-small btn-primary" onclick="resetchoose_equipment_meta()">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

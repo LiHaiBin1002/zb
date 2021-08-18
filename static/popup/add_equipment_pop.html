@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body> 
+    <div class="popup-Box" id="add_equipment_pop" style="width: 70%;overflow:auto;max-height:782px">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                    <!-- <img src="/static/img/insert.png" width="20" height="20" style="vertical-align:middle;"> -->
+                        <strong class="popup-header—strong" id = "equipment_title">修改合同设备</strong>
+                        <!-- 存放id用于修改时 -->
+                        <input type="hidden" name="equipment_id"> 
+                        <!-- 存放删除的设备记录id -->
+                        <input type="hidden" name="equipment_cont_id"> 
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel" onclick='cancel_click()'>
+                            <i class="fa fa-close cancel"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="popup-content div-lineheight">
+                <div class="showSelect">
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-right" >
+                            <label>合同编号</label><label class="hint">*&nbsp;</label>
+                        </div>
+                        <div class="col-xs-2" style="width:18%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write5" name="cont_write5"  placeholder="请选择" autocomplete="off" oninput="input_oninput('cont_write5','cont5',Fill_Select)" onclick="input_onclick('cont5')">
+                                <select class="form-control_select" id="cont5" name="cont5" style="position:absolute;" onchange="select_onchange('cont_write5','cont5');Auto_Matching('cont5','projectname5','dutyname5')">
+                                   <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-right" >
+                            <label>项目名称</label><label class="hint">*&nbsp;</label>
+                        </div>
+                        <div class="col-xs-4" style="width:40%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "projectname_write5" name="projectname_write5" placeholder="请选择" autocomplete="off" oninput="input_oninput('projectname_write5','projectname5',Fill_Select)" onclick="input_onclick('projectname5')">
+                                <select class="form-control_select" id="projectname5" name="projectname5" style="position:absolute;" onchange="select_onchange('projectname_write5','projectname5');Auto_Matching('projectname5','cont5','dutyname5')">
+                                    <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <label>项目负责人&nbsp;</label>
+                        </div>
+                        <div class="col-xs-1" style="width:12%">
+                            <select class="form-control" id="dutyname5" name="dutyname5"  disabled="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="border21 equipborder" id="increase_Equipment_box1" style="border:1px solid #b9c5e1;margin-top:10px;">
+                        <div class="remove_box remove_increase_project_box1" onclick="remove_equipment_box(this)" style="float:right;margin-top: -13px;line-height:0px;position: relative;right: -5px;top: 8px;">
+                            <img src="/static/img/gb.png" width="20" height="20" id="remove_increase_project_box1"  style="display:none;">
+                            <!-- <span id="remove_increase_project_box1"  style="display:none;">x</span> -->
+                            <!-- 存放id用于修改时 -->
+                            <input type="hidden" name="equipment_cont_id1"> 
+                        </div>
+                        <div style="float:left;margin-top: -20px;line-height:0px;position: relative;right: -10px;top: 36px; z-index:9999" >
+                            <img src="/static/img/zj.png" width="20" height="20" style="vertical-align:middle; margin-bottom:5px;" onclick="filePicker_equipment1(this)">    
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-right" style="width:5%">
+                                <label>品牌&nbsp;</label>
+                            </div>
+                            <div class="col-xs-1" style="width:13%">
+                                <select class="form-control" id="equipment_brand11" name="equipment_brand11" onchange="Fill_Select_prod_type('equipment_brand11','equipment_type11')">
+                                   <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right" style="width:5%">
+                                <label>类型&nbsp;</label>
+                            </div>
+                            <div class="col-xs-1" style="width:13%">
+                                <select class="form-control" id="equipment_type11" name="equipment_type11"  onchange="Fill_Select_prod_model('equipment_brand11','equipment_type11','equipment_model11')">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right" style="width:5%">
+                                <label>型号&nbsp;</label>
+                            </div>
+                            <div class="col-xs-2" style="width:24%">
+                                <select class="form-control" id="equipment_model11" name="equipment_model11">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right" style="width:5%">
+                                <label>数量&nbsp;</label>
+                            </div>
+                            <div class="col-xs-1" style="width:5%">
+                                <input class="form-control" type="text" disabled='disabled' style="text-align:center;background-color:rgba(127,127,127,0.1)" id='equipment_num11' name="equipment_num11" maxlength="2" value="1"  onkeyup="value=value.replace(/[^\d]/g,'')">
+                               
+                            </div>
+                            
+                            <div class="col-xs-1 text-right" style="width:5%">
+                                <label>序列号&nbsp;</label>
+                            </div>
+                            <div class="col-xs-3" style="width:20%">
+                                <input class="form-control" type="text" id='equipment_ser_num11' name="equipment_ser_num11" maxlength="30" onkeyup="value=value.replace(/[^\w\-]/g,'')" >
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="clear div-margin" style="margin-top:10px;">
+                        <div class="col-xs-1 text-right" style='width:5%;'>
+                            <label>备注&nbsp;</label>
+                        </div>
+                        <div class="col-xs-9" style='width:95%;'>
+                            <textarea class="form-control" type = "text"  id='equipment_remark11' name="equipment_remark11"  autocomplete="off" maxlength='100'></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center div-margin clear">
+                        <div class="btn-small btn-primary" id="add_equipment_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Add_Equipment_Confirm()">添加</div>
+                        <div class="btn-small btn-primary" id="update_equipment_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Update_Equipment_Confirm()">修改</div>
+                        <div class="btn-small btn-primary" id="closes_equipment_popup" style="padding:3px 25px;background:white;color:#2197DD;" onclick="Closes_Equipment_Popup()">退出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

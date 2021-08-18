@@ -1,0 +1,437 @@
+/*弹窗样式 -start*/
+.popup-Box{
+    position: fixed;
+    width: 40%;
+    background: #fff;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 15px;
+    visibility: hidden;
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    /* overflow: auto; */
+    overflow: hidden;
+}
+.md-overlay{
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 995;
+    opacity: 0;
+    background: #010101;
+	background: rgba(1,1,1,0.6);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.showPopup{
+    visibility: visible;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.showOverlay{
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.popup-Content-box{
+    position: relative;
+}
+.popup-Content-box .popup-header{
+    background:#0077d5;
+    color:#fff;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.popup-Content-box .popup-content{
+    padding: 10px 20px;
+    overflow: hidden;
+    clear: both;
+}
+.popup-Content-box .popup-footer{
+    padding: 10px 20px;
+    border-top: 1px solid #ccc;
+}
+/*弹窗样式 -end*/
+
+
+.wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#036AAC,endcolorstr=rgb(2, 145, 223),gradientType=0);
+    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#036AAC,endcolorstr=rgb(2, 145, 223),gradientType=0);/*IE8*/	
+    background: #0b7ac1; /* 一些不支持背景渐变的浏览器 */  
+    background:-moz-linear-gradient(top, #036AAC, rgb(2, 145, 223));  
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#036AAC), to(rgb(2, 145, 223)));  
+    background:-o-linear-gradient(top, #036AAC, rgb(2, 145, 223)); 
+}
+
+.container{
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-width:1450px;
+    width:expression_r(document.body.clientWidth < 1450 ? "1450px": "auto" );
+}
+
+/*头部样式start*/
+/* .header{
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-bottom: 4px solid rgba(11, 122, 193,0.5);
+} */
+.header{
+    width: 100%;
+    height: auto;
+    background: #0b7ac1;
+    background: rgba(11, 122, 193,0.8);
+    position: relative;
+}
+
+.headerlogo{
+    /* width: 170px; */
+    cursor: pointer;
+}
+
+.headerlogo img{
+    margin-left: 20px;
+    margin-top: 8px;
+    width: 130px;
+    height: auto;
+    /* display: block; */
+}
+
+.headerlogo span{
+    font-size: 16px;
+    color: white;
+    position: relative;
+    top: -12px;
+}
+
+.header-btn{
+    float: right;
+    color: #fff;
+    margin: 0px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 11px 0;
+    text-align: center;
+    font-weight: normal;
+    height:24px;
+} 
+
+.welcome{
+    /* top:-6px; */
+} 
+.header-btn div{
+    padding:5px 5px;
+    border:1px solid white;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius:8px;
+    font-size: 14px;
+}
+/*头部样式end*/
+
+.side-left{
+    position: relative;
+    -moz-box-sizing: border-box;  /*Firefox3.5+*/
+    -webkit-box-sizing: border-box; /*Safari3.2+*/
+    -o-box-sizing: border-box; /*Opera9.6*/
+    -ms-box-sizing: border-box; /*IE8*/
+    box-sizing: border-box;
+    color: #333;
+    box-shadow: 1px 0px 5px 2px #999;
+    /* border-right: 5px solid rgba(204, 204, 204, 0.5); */
+}
+
+.side-left .lastweek-box{
+    position: relative;
+}
+
+.side-left .lastweek-box h4{
+    text-align: center;
+    padding: 10px 0;
+    /* background: #E8E8E8; */
+    background: #0b7ac1;
+    background: rgba(11, 122, 193,0.5);
+    color: #fff;
+}
+
+.side-left .lastweek-title span{
+    width: 50%;
+    float: left;
+    padding: 10px 0;
+    text-align: center;
+    background: #D8E6ED;
+    font-weight: bold;
+}
+
+
+.side-left #table-box{
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.side-left .lastweek-content{
+    overflow: auto;
+}
+
+.side-left .lastweek-detail{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.side-right{
+    overflow: auto;
+    width: 100%;
+}
+.side-right .showallBox,.side-right .showTable,.side-right .showSelect{
+    padding: 10px;
+}
+.side-right .showSelect{
+    border-bottom: 2px solid #F6F6F6;
+	background-color: #F5FDF5;
+    border-radius: 15px;
+}
+.side-right .showSelect label{
+    line-height: 34px;
+    font-size: 14px;
+}
+
+.side-right .infoTableBox{
+    width: 100%;
+    max-height: 404px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+.side-right .infoTableBox-title{
+    padding: 10px;
+    font-size: 15px;
+    background: #D8E6ED;
+    color: #666;
+}
+
+.pageTitle{
+    margin: 10px 10px 0;
+    background: #0b7ac1;
+    background: rgba(11, 122, 193,0.5);
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.showallBox {
+    padding: 10px;
+}
+
+.personBox{
+    border: 1px solid #ccc;
+}
+
+.sTable{
+    width: 100%;
+    font-size: 14px;
+}
+.sTable th{
+    /* 自适应宽度*/
+    white-space: nowrap;
+    /* 避免长单词截断，保持全部 */
+    word-break:  keep-all; 
+}
+.sTable th,.sTable td{
+    text-align: center;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+}
+
+.displayTable{
+    width: 100%;
+    font-size: 14px;
+}
+.displayTable th{
+    /*white-space: nowrap; /* 自适应宽度*/
+    /*word-break:  keep-all; /* 避免长单词截断，保持全部 */
+}
+.displayTable th,.displayTable td{
+    text-align: center;
+    padding: 5px 10px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    /* 自适应宽度*/
+    white-space: nowrap;
+    /* 避免长单词截断，保持全部 */
+    word-break:  keep-all; 
+}
+
+.fortextarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei', '微软雅黑';
+}
+
+#user{
+    position: relative;
+}
+.popup-Box .addDataStyle{
+    padding: 10px 0;
+}
+.popup-Box .addUserInput > div{
+    margin: 10px 0;
+}
+
+.total{
+    margin: 10px 10px;
+    border: #80808075 1px solid;
+    padding: 5px;
+}
+.total > span{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/*
+.header-btn{
+    float: right;
+    color: #666;
+    font-size: 25px;
+    margin-right: 20px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+*/
+
+/* 
+隐藏滚动条 只适用于google浏览器
+::-webkit-scrollbar{
+    display:none;
+}
+*/
+
+/* .submenu{
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: -25px;
+    background: rgba(11, 122, 193,1);
+    background: #F6F6F6;
+    z-index: 999999;
+    font-size: 12px;
+    width: 100px;
+    min-height: 50px;
+    color: #666;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.submenu li{
+    text-align: center;
+    padding: 10px 5px;
+}
+.submenu li:hover{
+    background: #0b7ac1;
+    background: rgba(11, 122, 193,0.8);
+    color: #fff;
+} */
+
+/*userdata.html用户数据的表格标题样式*/
+/* .showTableTitle{
+    padding: 0px 10px 0;
+}
+.filterTitle{
+    padding: 10px 10px 0;
+} */
+
+.filePicker{
+    width: 110px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #0077d5;
+    /* background: #00b7ee; */
+    border-radius: 4px;
+    float: right;
+    cursor: pointer;
+}
+.filePicker label{
+    cursor: pointer;
+    font-size: 15px;
+    padding: 8px 15ps;
+}
+.filePicker input[type="file"] {
+    position: relative;
+    top: -34px;
+    left: 0px;
+    width: 80px;
+    height: 34px;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10;
+}
+.file_Input {
+    position: relative;
+    top: 6px;
+    left: -46px;
+    width: 40px;
+    height: 20px;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 10;
+}
+.span_file_Input{
+    width: 46px;
+    display: inline-block;
+}
+.showSelect{
+	margin-bottom: 5px;
+	/* background:#F6FEF6; */
+    /* border: #aaa 1px solid; */
+}
+.showInput{
+	margin-bottom: 5px;
+	/* background: #F6FEF6; */
+    /* border: #aaa 1px solid; */
+}
+.showOther{
+	margin-bottom: 5px;
+	/* background: #F6FEF6; */
+    /* border: #aaa 1px solid; */
+}
+.a_add_achive:hover{
+    color: red;
+    cursor: pointer;
+}
+.alert_or_myconfirm_span1{
+    font-family: SimHei;
+    font-weight: bolder;
+    line-height: 30px;
+}
+.alert_or_myconfirm_span2{
+    color: red;
+}
+
+
+
+

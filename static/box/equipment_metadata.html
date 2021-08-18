@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body>
+    <!--设备型号盒子-->
+    <div class="equip_metaBox1" style="margin:0 auto;width:1000px;border:#eaeaea 2px solid;">
+        <div class="col-xs-10">
+            <div class="col-xs-5">
+                <div class="admin-right-header">
+                    <h3>
+                        <span>设备信息</span>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-xs-5">
+               
+            </div>
+        </div>
+        <div class="showContent">
+            <div class="col-xs-5">
+                <h4>显示所有设备信息</h4>
+            </div>
+            <div class="tab-header col-xs-5" style="overflow:hidden">
+                <div class="filePicker" id="equip_meta_search_btn1" style="text-align:right;" onclick="select_equip_meta()">
+                    <label id="equip_meta_search_btn"> <i class="fa fa-search"></i> 筛选数据 </label>
+                </div>
+                <div class="filePicker" style="text-align:right;">
+                    <label onclick = "resetchoose_equipment_meta();displayEquipMeta()" ><i class="fa fa-reply"></i> 返回</label>
+                </div>
+            </div>
+            <table class="sTable">
+                <thead>
+                    <tr>
+                        <th height="30" width="20%">品牌</th>
+                        <th height="30" width="25%">类型</th>
+                        <th height="30" width="30%">型号</th>
+                        <th height="30" width="25%">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="display_equip_meta">
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>周报系统</title>
+    <link rel="stylesheet" href="/static/css/public.css">
+    <link rel="stylesheet" href="/static/css/login.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/jquery.validate.js"></script>
+    <script src="/static/js/public.js"></script>
+    <script src="/static/js/login.js?'+Math.random();+'"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <link rel="icon" type="image/x-icon" href="/static/img/N.ico">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="login" method="post" action="">
+            <div id="loginForm">
+                <div id="logo">
+                    <img src="/static/img/logo.png">
+                </div>
+                <!-- <label id="title">周报系统</label> -->
+                <div id="infoBox">
+                    <div class="row">
+                        <div class="col-xs-2 text-right div-padding">
+                            <label class="form-label">用户名</label>
+                        </div>
+                        <div class="col-xs-7 text-left div-padding">
+                            <input autocomplete="off" type="text" class="form-control" name="username">
+                        </div>
+                    </div>
+                    <div class="row" style="height:68px;">
+                        <div class="col-xs-2 text-right div-padding">
+                            <label class="form-label">密码</label>
+                        </div>
+                        <div class="col-xs-7 text-left div-padding">
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10 text-center">
+                            <button class="btn btn-primary" type="submit">登录</button>
+                            <!-- <button class="btn btn-default" id="reset">重置</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="/static/js/alert_and_confirm.js"></script>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body>  
+    <div class="col-xs-10">
+        <div class="col-xs-5">
+            <div class="admin-right-header">
+                <h3 style="text-align:left;">
+                    <span >设备信息记录</span>
+                </h3>
+                <input type='hidden' id='search_serial' ><!--放用于筛选时的序列号-->
+            </div>
+        </div>
+       
+        <div class="col-xs-5" >
+            <div class="tab-header" style="overflow:hidden;float:right;font-weight:bold;">
+                <div class="filePicker"  style="width:40px;">
+                    <span>&nbsp;<span>
+                </div>
+                <div class="filePicker" id="Cont_Equipment_Div1" style="text-align:right;margin-left:25px;" onclick="add_cont_equipment_btn()">
+                    <label id="Cont_Equipment_Label"><i class="fa fa-plus-circle" ></i> 新增设备登记</label>
+                </div>
+                <div class="filePicker" id="Cont_Equipment_Div2"  style="text-align:right;" onclick="update_cont_warranty_btn()">
+                    <label ><i class="fa fa-wrench" ></i> 刷新保修信息 </label>
+                </div>
+                <div class="filePicker" id="Cont_Equipment_Div3" style="text-align:center;" onclick="$('.equipmentBox').show();$('.One_Cont_equipmentBox').hide();chooseinfo_equipment()">
+                    <label><i class=" fa fa-reply" ></i> 返回 </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-10">
+        <div class="clear div-margin">
+            <div class="col-xs-1 text-right text-padding-right">
+                <label>合同编号</label>
+            </div>
+            <div class="col-xs-3" >
+                <input class="form-control" type = "text" id = "warranty_html_cont" name="warranty_html_cont" disabled="disabled">
+            </div>
+            <div class="col-xs-1 text-right text-padding-right">
+                <label>项目名称</label>
+            </div>
+            <div class="col-xs-5" >
+                <input class="form-control" type = "text" id = "warranty_html_projectname" name="warranty_html_projectname" disabled="disabled">
+            </div>
+        </div>
+    </div>
+    <div class="showContent">
+        <div class="tablebox">
+            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                <thead>
+                    <tr id="title_project" height = '30'>
+                        <!-- <th >合同编号</th> -->
+                        <!-- <th style="text-align: left;">项目名称</th> -->
+                        <!-- <th >项目负责人</th> -->
+                        <th  height = '30'>品牌</th>
+                        <th  height = '30'>类型</th>
+                        <th  height = '30'>型号</th>
+                        <th  height = '30'>数量</th>
+                        <th  height = '30'>序列号</th>
+                        <th  height = '30'>维保起始日期</th>
+                        <th  height = '30'>维保终止日期</th>
+                        <th  height = '30'>备注</th>
+                        <th  height = '30' class = 'equipment_one_operate' >操作</th>
+                    </tr>
+                </thead>
+                <tbody id="show_cont_equipment" style="font-weight:bold;">
+                </tbody>
+            </table>
+        </div>
+        <div id="paging4" style='position: relative;text-align: center'></div>
+    </div>
+</body>

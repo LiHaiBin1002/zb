@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body>
+    <!-- 项目周报盒子 -->
+    <div class="data_sharBox1" style="width:90%;margin:0 auto;border:#eaeaea 2px solid;">
+        <div class="col-xs-10" style='height:60px;line-height:60px;'>
+            <div class="col-xs-3 text-left">
+                <div class="col-xs-5" style="width:auto;" onclick="softBatchUpload();">
+                    <input type="file" multiple="multiple" id="softBatchDownload_input" style="position: absolute;top:10px;border: 0px solid transparent;background: transparent;height: 38px;line-height: 38px;opacity: 0.01;width: 80px;margin-left:50px;cursor: pointer;">
+                    <button type="button" class="postfilebtn" style='text-align: center;display: inline-block;color: #fff!important;background: #549830;
+border-radius: 5px;height: 38px;width: 80px;line-height: 38px;border: 0;margin-left:50px;font-size:14px;cursor: pointer;' id="softBatchDownload" name="hedexBatchUpload" style="display:inline" >上传文件</button>
+                </div>
+                <div class="col-xs-5" style="width:auto;margin-left:10px;">
+                    <button type="button" class="getfilebtn" style='text-align: center;display: inline-block;color: #fff!important;background: #796049;
+border-radius: 5px;height: 38px;width: 80px;line-height: 38px;border: 0;font-size:14px;margin-right:50px;cursor: pointer;' id="softBatchDownload" name="hedexBatchDownload" style="display:inline" onclick="softBatchDownload();">下载</button>
+                </div>
+                
+                
+                <!-- <div class="admin-right-header" style='padding-left:30px;'> -->
+                    <!-- <h2>  -->
+                        <!-- 资料文件列表 -->
+                    <!-- </h2> -->
+                <!-- </div> -->
+            </div>
+            <div class="col-xs-4 text-left">
+                <div style='width:90%;float:left;'><input type= 'text' id="searchfile_input" name="searchfile_input" class="form-control input-lg" placeholder="请输入您要查找的文件名称关键字" autocomplete="off" spellcheck="false" autocorrect="off" style="margin-top:15px;" tabindex="1"></div>
+                <div style='width:10%;float:left;'><button style="text-align:left;margin-top:20px;border:0;background:#fff;" onclick='produce_page();paging_query_file(1)'><i class="fa fa-search" style="font-size:23px;" aria-hidden="true"></i> </button></div>
+            </div>
+            <div class="col-xs-3 ">&nbsp;</div>
+        </div>
+        <div class="showContent" style=" overflow: hidden; margin-bottom: 20px;font-size:20px;">
+            <div>
+                <div class="tablebox">
+                    <table class="sTable" cellspacing="0" cellpadding="0" border="0">
+                        <thead>
+                            <tr style='font-weight:bold;'>
+                                <td width="2%" style="border:0px;padding-right:0px;background:#f1f1f1">
+                                    <input type="checkbox" style="margin:5px 8px 0px 0px;" id="checkSoft" onchange="choice_filelist_checkbox(this)"/> 
+                                </td>
+                                <td height='30'width="50%" style="border:0px;padding-left:0px;background:#f1f1f1;text-align:left;">文件名称</td>
+                                <td height='30'width="10%" style="border:0px;padding-left:0px;background:#f1f1f1">发布人</td>
+                                <td height='30' width="10%" style="border:0px;text-align:center;background:#f1f1f1">文件大小</td>
+                                <td height='30' width="10%" style="border:0px;text-align:center;background:#f1f1f1">发布时间&nbsp;&nbsp;<i class="fa fa-long-arrow-down"></i></td>
+                                <td height='30' width="10%" style="border:0px;text-align:center;background:#f1f1f1">下载次数</td>
+                                <td height='30' width="8%" style="border:0px;text-align:center;background:#f1f1f1">下载</td>
+                            </tr>
+                        </thead>
+                        <tbody id="show_share_file">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="padding_lhb" style="text-align: center;overflow:hidden;margin-top:30px;">
+                <!-- 动态生成翻页栏 -->
+            </div>
+        </div>
+        <!-- <div class="tab-header"></div> -->
+    </div>
+</body>

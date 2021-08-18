@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body> 
+    <div class="popup-Box" id="update_cont_personnel_input_pop" style="width: 60%;overflow:auto;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                        <strong class="popup-header—strong">修改投入信息</strong>
+                    </div>
+                    <!-- 用于保存要修改的记录的id -->
+                    <input type = "hidden" id = "update_personnel_input_id" name = "update_personnel_input_name">
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel" onclick='cancel_click()'>
+                            <i class="fa fa-close cancel"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight">
+                <div class="showSelect">
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-right" >
+                            <label>合同编号</label>
+                        </div>
+                        <div class="col-xs-2" style="width:18%">
+                                <input class="form-control" type = "text" id = "cont_update_personnel" name="cont_update_personnel" disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                        </div>
+                        <div class="col-xs-1 text-right" >
+                            <label>项目名称</label>
+                        </div>
+                        <div class="col-xs-4" style="width:40%">
+                            <input class="form-control" type = "text" id = "projectname_update_personnel" name="projectname_update_personnel" disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <label>项目负责人</label>
+                        </div>
+                        <div class="col-xs-1" style="width:12%">
+                            <input class="form-control" type = "text" id = "dutyname_update_personnel" name="dutyname_update_personnel" disabled ="disabled" style="background-color:rgba(127,127,127,0.1)" >
+                        </div>
+                    </div>
+                    <div class='col-xs-10'>
+                        <div class='col-xs-5'>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-left">
+                                    <label>预计实施人员投入：</label>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="初级">初级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'imp_primary1' name = 'imp_primary1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'imp_primary_add' name = 'imp_primary_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="中级">中级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'imp_intermediate1' name = 'imp_intermediate1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'imp_intermediate_add' name = 'imp_intermediate_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="高级">高级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'imp_senior1' name = 'imp_senior1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'imp_senior_add' name = 'imp_senior_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="高级+" >高级以上&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" maxlength="3" id = 'imp_senior_plus1' name = 'imp_senior_plus1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'imp_senior_plus_add' name = 'imp_senior_plus_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="其他" >其他&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'imp_other_level1' name = 'imp_other_level1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'imp_other_level_add' name = 'imp_other_level_add'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-xs-5'>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-left">
+                                    <label>预计维保人员投入：</label>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="初级">初级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'gua_primary1' name = 'gua_primary1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'gua_primary_add' name = 'gua_primary_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="中级">中级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'gua_intermediate1' name = 'gua_intermediate1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'gua_intermediate_add' name = 'gua_intermediate_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="高级">高级&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'gua_senior1' name = 'gua_senior1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'gua_senior_add' name = 'gua_senior_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="高级+" >高级以上&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" maxlength="3" id = 'gua_senior_plus1' name = 'gua_senior_plus1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'gua_senior_plus_add' name = 'gua_senior_plus_add'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-10 text-right">
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="其他" >其他&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" placeholder = "0" id = 'gua_other_level1' name = 'gua_other_level1' disabled ="disabled" style="background-color:rgba(127,127,127,0.1)">
+                                    </div>
+                                    <div class="col-xs-2 text-right">
+                                        <input type="hidden" value="增减项">增减项&nbsp;&nbsp;</input>
+                                    </div>
+                                    <div class="col-xs-2 text-right" style="width:30%">
+                                        <input class="form-control" type="text" oninput="checknum00_999(this)" placeholder = "0" maxlength="5" autocomplete="off" id = 'gua_other_level_add' name = 'gua_other_level_add'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin" style="margin-top:10px;">
+                        <div class="col-xs-1 text-right" >
+                            <label>备注&nbsp;</label>
+                        </div>
+                        <div class="col-xs-9" >
+                            <textarea class="form-control" type = "text"  id='personnel_input_remake1' name="personnel_input_remake1"  autocomplete="off" maxlength='100'></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center div-margin clear">
+                        <!-- <div class="btn-small btn-primary" id="add_personnel_input_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Add_Personnel_Input_Confirm()">添加</div> -->
+                        <div class="btn-small btn-primary" id="update_personnel_input_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Update_Personnel_Input_Confirm()">修改</div>
+                        <div class="btn-small btn-primary " id="closes_personnel_input_popup" style="padding:3px 25px;background:white;color:#2197DD;" onclick='cancel_click()'>退出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

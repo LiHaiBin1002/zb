@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>周报系统</title>
+    <!--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">!-->
+    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/public.css?'+Math.random();+'">
+    <link rel="stylesheet" href="/static/css/index.css?'+Math.random();+'">
+    <link rel="stylesheet" href="/static/css/pikaday.css">
+    <link rel="stylesheet" href="/static/css/user.css?'+Math.random();+'">
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery.searchableSelect.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/paging.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/jquery.nicescroll.min.js"></script>
+    <script src="/static/js/jquery.cookie.js"></script>
+    <script src="/static/js/index.js?'+Math.random();+'"></script>
+    <link rel="icon" type="image/x-icon" href="/static/img/N.ico">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-10">
+                <div class="header">
+                    <div class="clear">
+                        <div class="col-xs-6">
+                            <div class="col-xs-2">
+                                <div class="headerlogo">
+                                    <img src="/static/img/logo.png">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xs-8">
+                                <ul id="leftmenu">
+                                    <li id="saleMg">
+                                        <i class="fa fa-user-circle-o"></i> 销售负责人
+                                    </li>
+                                    <li id="project_ing" class ='datatrack'>
+                                        <i class="fa fa-clone"></i><span> 在建项目 </span>
+                                        <div class="perMg2" id="perMg2" style ="display">
+                                            <ul id="project_all" class ='datatrack1'><span> 项目跟踪 </span></ul>
+                                        </div>
+                                    </li>
+                                    <li id="dataMg">
+                                        <i class="fa fa-clone"></i> 数据管理
+                                        <div class="perMg3" id="perMg3">
+                                            <ul id="project_daily">项目日报</ul>
+                                            <ul id="project_performance">项目绩效</ul>
+                                        </div>
+                                    </li>
+                                    <li id="systemMg">
+                                        <i class="fa fa-cog"></i> 提交情况
+                                    </li>
+                                    <li id="archiveMg">
+                                        <i class="fa fa-clone"></i> 归档报告
+                                    </li>
+                                    <li id="equipmentMg">
+                                        <i class="fa fa-clone"></i> 设备登记
+                                    </li>
+                                    <li id="datafileMg">
+                                        <i class="fa fa-file-text-o"></i> 共享文件
+                                    </li>
+                                    <li id="prj_reportMg"  class = "display_none">
+                                        <i class="fa fa-clone"></i> 项目周报
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="header-btn" title="退出" id="logout">
+                                <div>退出登录</div>
+                            </div>
+                            <div class="header-btn" title="修改密码" id="alterPassword">
+                                <div>修改密码</div> 
+                            </div>
+                            <div class="header-btn" id="user">
+                                <span>欢迎&nbsp;</span>
+                                <div id="headername" style="display:inline;border:none" class="username"></div>
+                            </div>
+                            <div class="header-btn" id="news">
+                                <span><span id="news_count">0</span>条新消息</span>&nbsp;&nbsp;<a id="display_news" >查看</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <div class="user-right">
+                <!--销售负责人盒子-->
+                <div class="saleBox" style="margin:0 auto;width:1000px;border:#eaeaea 2px solid;">
+                    <div class="col-xs-10">
+                        <div class="col-xs-5">
+                            <div class="admin-right-header" style="margin-bottom:10px;">
+                                <h3>
+                                    <i class="fa fa-users" style="color:#579cce;"></i>
+                                    <span>销售负责人</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                           
+                        </div>
+                    </div>
+                    <div class="showContent">
+                        <table class="sTable">
+                            <thead>
+                                <tr>
+                                    <th height="30" width="20%">销售负责人</th>
+                                    <th height="30" width="25%">联系电话</th>
+                                    <th height="30" width="30%">邮箱地址</th>
+                                </tr>
+                            </thead>
+                            <tbody id="display_saleman">
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- 周报盒子 -->
+                <div class="dataMgBox">
+                    <div class="row div-margin1">
+                        <h4 style="line-height: 34px;">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <span>
+                                        <i class="fa fa-user-o" style="color:#579cce;"></i> 日报记录</span>
+                                </div>
+                                <div class="col-xs-4 " id="update_tishi_mymove">
+        
+                                </div>
+
+                                <script>
+                                    $("#update_tishi_mymove").load("./box/update_tishi_mymove.html?'+Math.random();+'");
+                                </script>
+                                <div class="col-xs-3 text-right">
+                                    <!-- <button class="btn-small btn-default">导入数据</button> -->
+                                    <!-- <div class="filePicker" style="display:none"> -->
+                                        <!-- <label><i class="fa fa-file" aria-hidden="true"></i> 导入工作记录</label> -->
+                                        <!-- <input id="fileInput" type="file" name="file"> -->
+                                    <!-- </div> -->
+                                    <div class="filePicker"  id="filePicker_addwordcontentbtn" style="text-align:left;">
+                                        <label id="addwordcontentbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i> 新增日报记录</label>
+                                    </div>
+                                    <!-- <div class="filePicker" onclick="del_work_content_more()"> -->
+                                        <!-- <label id="piliangdeletebtn"><i class="fa fa-trash" aria-hidden="true"></i> 批量删除</label> -->
+                                    <!-- </div> -->
+                                    <div class="filePicker" id="filePicker_search_btn" style="padding:0 20px;" onclick="select_work_content()">
+                                        <label id="search_btn" > <i class="fa fa-search" aria-hidden="true"></i> 筛选日报记录</label>
+                                    </div>
+                                    <div class="filePicker" style="text-align:right;">
+                                        <label id="fanhui" ><i class="fa fa-reply"></i> 返回</label>
+                                    </div>
+                                    <!-- <div>  -->
+                                        <!-- <button class="btn-small btn-default" id="addwordcontentbtn">添加数据</button> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </h4>
+                    </div>
+                    <div class="user-right-box">
+                        <div class="row div-margin">
+                            <div class="total">
+                                <span>累计人日：
+                                    <span class="daysTotal">0</span>
+                                </span>
+                                <span>累积人月：
+                                    <span class="monthTotal">0</span>
+                                </span>
+                                <span>累计固定费用：
+                                    <span class="fixedcostTotal">0</span>
+                                </span>
+                                <span>累计变动费用：
+                                    <span class="othercostTotal">0</span>
+                                </span>
+                                <span>总计：
+                                    <span class="allTotal">0</span>
+                                </span>
+                            </div>
+                            <div class="tablebox">
+                                <table class="displayTable">
+                                    <thead>
+                                        <!-- <tr> -->
+                                            <!-- <th rowspan="2" width="80">日期</th> -->
+                                            <!-- <th rowspan="2">合同编号</th> -->
+                                            <!-- <th rowspan="2">项目名称</th> -->
+                                            <!-- <th rowspan="2">客户名称</th> -->
+                                            <!-- <th rowspan="2">销售负责人</th> -->
+                                            <!-- <th rowspan="2">所属部门</th> -->
+                                            <!-- <th rowspan="2">地点</th> -->
+                                            <!-- <th rowspan="2">工作内容</th> -->
+                                            <!-- <th rowspan="2">输出成果</th> -->
+                                            <!-- <th rowspan="2">工程量</th> -->
+                                            <!-- <th rowspan="2">固定费用(元)</th> -->
+                                            <!-- <th rowspan="2">请求资源</th> -->
+                                            <!-- <th colspan="6">变动费用(元)</th> -->
+                                            <!-- <th rowspan="2" width="50">操作</th> -->
+                                        <!-- </tr> -->
+                                        <!-- <tr> -->
+                                            <!-- <th>市内交通费</th> -->
+                                            <!-- <th>差旅交通费</th> -->
+                                            <!-- <th>出差补助费</th> -->
+                                            <!-- <th>住宿费</th> -->
+                                            <!-- <th>其他</th> -->
+                                            <!-- <th>小计</th> -->
+                                        <!-- </tr> -->
+                                        <tr id="title_project">
+                                            <th>序号</th>
+                                            <th width="80">起始日期</th>
+                                            <th width="80">结束日期</th>
+                                            <th id="title_address">地点</th>
+                                            <th id="title_contractno">合同编号</th>
+                                            <th id="title_projectname">项目名称</th>
+                                            <th id="title_clientname">客户名称</th>
+                                            <th  id="title_dutyname">项目负责人</th>
+                                            <th id="title_salename">销售负责人</th>
+                                            <th id="title_department">所属部门</th>
+                                            <th id="title_worktype">工作类</th>
+                                            <th>工作项</th>
+                                            <th>工作内容</th>
+                                            <th >输出成果</th>
+                                            <!-- <th height="30">请求资源</th> -->
+                                            <th>人员姓名</th>
+                                            <th>工程量</th>
+                                            <th>人员系数</th>
+                                            <th>固定费用</th>
+                                            <th>市内交通费</th>
+                                            <th>差旅交通费</th>
+                                            <th>出差补助费</th>
+                                            <th>住宿费</th>
+                                            <th>其他</th>
+                                            <th id="display_work_header">变动费用小计</th>
+                                            <th width="50">状态</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="display_work_content">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="paging"></div>
+                    </div>
+                </div>
+                    
+                <!-- 项目状态盒子 -->
+                <div class="dataTrackBox">
+                    <div class="col-xs-10">
+                        <div class="col-xs-5">
+                            <div class="admin-right-header">
+                                <h3>
+                                    <i class="fa fa-database" style="color:#579cce;"></i>
+                                    <span>合同进度</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="tab-header" style="overflow:hidden;float:right;">
+                                <div class="filePicker" id="search_btn1_ht" style="text-align:right;" onclick="select_hetong()">
+                                    <label id="search_btn_ht"> <i class="fa fa-search"></i> 筛选合同 </label>
+                                </div>
+                                <div class="filePicker" style="text-align:right;">
+                                    <label id="fanhui_ht" onclick = "fanhui_ht()" ><i class="fa fa-reply"></i> 返回</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showContent">
+                        <div class=" row div-margin">
+                            <div class="tablebox">
+                                <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                    <thead>
+                                        <tr id="wowowowo">
+                                            <!-- <th id="wowowo">操作</th> -->
+                                            <th>序号</th>
+                                            <th>客户名称</th>
+                                            <!-- <th height="30" colspan ="3">合同基本信息</th> -->
+                                            <th>合同编号</th>
+                                            <th>类型</th>
+                                            <th id = 'prj_name' >项目名称</th>
+                                            <!-- <th height="30 ></th> -->
+                                            <!-- <th height="30" colspan ="4">报告归档情况</th> -->
+                                            <th id = 'prj_state'>项目状态</th>
+                                            <th>采购状态</th>
+                                            <th>到货状态</th>
+                                            <!-- <th>实施情况</th> -->
+                                            <th>归档情况%</th>
+                                            <th>货物清点</th>
+                                            <th>初验报告</th>
+                                            <th>终验报告</th>
+                                            <th>项目负责人</th>
+                                            <th>销售负责人</th>
+                                            <!-- <th height="30">开票、收款情况</th> -->
+                                            <th>已开票%</th>
+                                            <th>已收款%</th>
+                                            <th id ="beizhuma">备注</th>
+                                            <th>最近更新时间</th>
+                                            <th>最近更新内容</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="show_track">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="paging1"></div>
+                    </div>
+                </div>
+                <!-- 项目周报盒子 -->
+                <div class="prj_reportBox" style="width:1300px;margin:0 auto;border:#eaeaea 2px solid;">
+                    <div class="col-xs-10" style='height:60px;line-height:60px;'>
+                        <div class="col-xs-3" style="width:28%">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col-xs-5 text-center" style="width:44%;">
+                            <div class="admin-right-header">
+                                <h2> 
+                                    周 报 提 交 记 录
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="filePicker" onclick="alert_updateTrack()" style="text-align:left;line-height:60px;margin-top:30px">
+                                <label style="font-size:16px;"><h4> <i class="fa fa-plus-circle" aria-hidden="true"></i> 编写周报 </h4></label>
+                            </div>
+                        </div>
+                        <div class="col-xs-1" style="width:8%">
+                            <label>&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="showContent">
+                        <div>
+                            <div class="tablebox">
+                                <table class="sTable" cellspacing="0" cellpadding="0" border="0">
+                                    <thead>
+                                        <th height='30'>提交日期</th>
+                                        <th height='30'>项目负责人</th>
+                                        <th height='30'>合同编号</th>
+                                        <th height='30'>项目名称</th>
+                                        <th height='30'>操作</th>
+                                    </thead>
+                                    <tbody id="show_prj_report">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-header"></div> -->
+                </div>
+                  
+                <!-- 归档报告盒子 -->
+                <div class="archiveBox" style="margin:0 auto;border:#eaeaea 2px solid;">
+                    <div class="col-xs-10" style='height:60px;line-height:60px;'>
+                        <div class="col-xs-5">
+                            <div class="admin-right-header">
+                                <h3>
+                                    <span>归档记录</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-xs-5" >
+                            <div class="tab-header" style="overflow:hidden;float:right;">
+                                <div class="filePicker"  style="width:40px;">
+                                    <span>&nbsp;<span>
+                                </div>
+                                <div class="filePicker" id="search_archive_btn" style="text-align:right;" onclick="search_archive()">
+                                    <label><i class="fa fa-search" ></i> 筛选归档 </label>
+                                </div>
+                                <div class="filePicker" id="fanhui_archive" style="text-align:right;" onclick="fanhui_archive()">
+                                    <label><i class=" fa fa-reply" ></i> 返回 </label>
+                                </div>
+                                <!-- <div class="filePicker" style="text-align:right;"> -->
+                                    <!-- <label id="fanhui_ht" onclick = "displayTrack()" ><i class="fa fa-reply"></i> 返回</label> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showContent">
+                        <!-- <div style ='overflow:hidden;'> -->
+                        <!-- </div> -->
+                           
+                        <div class='div-margin'>
+                            <div class="tablebox">
+                                <table class="displayTable" cellspacing="0" cellpadding="0" border="0">
+                                    <thead>
+                                        <th height='30'>操作</th>
+                                        <!-- <th height='30'>序号</th> -->
+                                        <th height='30'>合同编号</th>
+                                        <th height='30'>项目名称</th>
+                                        <th height='30'>报告类</th>
+                                        <th height='30'>报告项</th>
+                                        <th height='30'>报告说明</th>
+                                        <th height='30'>报告签署日期</th>
+                                        <th height='30'>初始登记日期</th>
+                                        <th height='30'>最后修改日期</th>
+                                        <th height='30'>项目负责人</th>
+                                        <th height='30'>登记人</th>
+                                        <th height='30'>备注</th>
+                                    </thead>
+                                    <tbody id="show_archive">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="paging2" style='position: relative;text-align: center'></div>
+                    </div>
+                    <!-- <div class="tab-header"></div> -->
+                </div>
+                
+                <!-- 报表盒子 -->
+                <div class="systemBox" style="width:1000px;margin:0 auto;border:#eaeaea 2px solid;">
+                    <div class="col-xs-10">
+                        <div class="col-xs-5">
+                            <div class="admin-right-header">
+                                <h3>
+                                    <i class="fa fa-database" style="color:#579cce;"></i>
+                                    <span>员工日报提交情况</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class='col-xs-5' style='text-align:right;'>
+                            <span class = 'result_span libg' id = 'result_span1' onclick = 'display_everyweek_result()'>每周检查结果</span>
+                            <span class = 'result_span' id = 'result_span2' onclick = 'display_everymonth_result()'>每月检查结果</span>
+                        </div>
+                    </div>
+                    <div class="showContent">
+                        <h4>显示所有提交情况</h4>
+                        <div class='check_everyweek_result_div'>
+                            <div class="tablebox">
+                                <table class="sTable" cellspacing="0" cellpadding="0" border="0">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th height="30" width="100">姓名</th> -->
+                                            <!-- <th height="30" width="50">条数</th> -->
+                                            <!-- <th height="30">情况</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody id="display_work_count">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class='check_everymonth_result_div' style='display:none;'>
+                            <div class="tablebox">
+                                <table class="sTable" cellspacing="0" cellpadding="0" border="0">
+                                    <thead>
+                                        <tr>
+                                            <!-- <th height="30" width="100">姓名</th> -->
+                                            <!-- <th height="30">未提交日报的日期</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody id="display_work_count1">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="tab-header"></div> -->
+                </div>
+                        
+                <!--设备信息盒子-->
+                <div class="equipmentBox">
+                   
+                </div>
+                <script>$(".equipmentBox").load("./box/equipmentBox.html?'+Math.random();+'");</script>
+                <!--单个项目对应的设备信息盒子-->
+                <div class="One_Cont_equipmentBox" style='text-align:center'>
+                    <div class="One_Cont_equipmentBox1" style='width:70%; margin:0 auto; '>
+                       
+                    </div>
+                </div>
+                <script>$(".One_Cont_equipmentBox1").load("./box/One_Cont_equipmentBox.html?'+Math.random();+'");</script>
+                
+                 <!--项目绩效盒子-->
+                <div class="project_performanceBox" >
+                   
+                </div>
+                <script>$(".project_performanceBox").load("./box/project_performanceBox.html?'+Math.random();+'");</script>
+                <!--共享文件盒子-->
+                <div class="data_sharBox" >
+                   
+                </div>
+                <script>$(".data_sharBox").load("./box/data_sharingBox.html?'+Math.random();+'");</script>
+            </div>
+        </div>
+    </div>
+
+    <!--弹窗-->
+    <!-- 工作记录添加 -->
+    <div class="popup-Box" id="workprocess" style="width: 70%;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-5" id="header-title">
+                        <strong>新增日报记录</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content">
+                <div class="row">
+                    <div class="showSelect">
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>起始日期</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-2" style="width:15%;">
+                                <input type="text" class="form-control" id="datepicker1" name="starttime" placeholder="选择日期" autocomplete="off">
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>结束日期</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-2" style="width:15%;">
+                                <input type="text" class="form-control" id="datepicker2" name="endtime" placeholder="选择日期" disabled="disabled" autocomplete="off">
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>地点</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-1">
+                                <select class="form-control" id="site" name="site">
+                                    <option value="">省/市</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1" id="cityBox">
+                                <select class="form-control" id="city" name="city">
+                                    <option value="">市/区</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1" id="countyBox" style="display:none;">
+                                <select class="form-control" id="county" name="county">
+                                    <option value="">县/镇</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>工程量</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-1">
+                                <select class="form-control" id="workload" name="workload">
+                                    <option value="">请选择</option>
+                                    <option value="0.5">0.5天</option>
+                                    <option value="1.0">1.0天</option>
+                                    <option value="1.5">1.5天</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>项目负责人</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-1" style='width:12%'>
+                                <select class="form-control" id="dutyname" name="dutyname">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right" >
+                                <label>合同编号</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-2" style='width:18%'>
+                               <div class="z-index_500">
+                                    <input class="form-control" type = "text" id = "cont_write" name="cont_write" autocomplete="off" placeholder="请选择">
+                                    <select class="form-control_select" id="cont" name="cont" style="position:absolute;top:34px;">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>项目名称</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-4" >
+                                <div class="z-index_500">
+                                    <input class="form-control" type = "text" id = "projectname_write" name="projectname_write" autocomplete="off" placeholder="请选择">
+                                    <select class="form-control_select" id="projectname" name="projectname" style="position:absolute;top:34px">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear div-margin" style= "display:none;">
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>客户名称</label>
+                            </div>
+                            <div class="col-xs-1" >
+                                <select class="form-control" id="clientname" name="clientname" disabled="disabled">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>所属部门</label>
+                            </div>
+                            <div class="col-xs-1">
+                                <select class="form-control" id="department" name="department" disabled="disabled">
+                                    <option value="">请选择</option>&nbsp;<label class="hint ">*</label>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>销售负责人</label>
+                            </div>
+                            <div class="col-xs-1" >
+                                <select class="form-control" id="sell" name="sell" disabled="disabled">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-xs-1 text-right text-padding-right"> -->
+                                <!-- <label>项目负责人</label> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-xs-1" > -->
+                                <!-- <select class="form-control" id="dutyname" name="dutyname" disabled="disabled"> -->
+                                    <!-- <option value="">请选择</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="showInput">
+                        <div class="clear div-margin">
+                             <div class="col-xs-1 text-right text-padding-right">
+                                <label>工作类</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-2" style="width:12%">
+                                <select class="form-control" id="worktype" name="worktype">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div> 
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>工作项</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-4" style="width:18%">
+                                <select class="form-control" id="workitem" name="workitem">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>工作内容</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-4">
+                                <textarea name="workcontent" id="workcontent" class="form-control" maxlength="80"></textarea>
+                            </div>
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-right text-padding-right" style="display:none">
+                                <label>请求资源</label>&nbsp;<label class="hint1">*</label>
+                            </div>
+                            <div class="col-xs-4" style="display:none">
+                                <textarea name="requestResources" id="requestResources" class="form-control" maxlength="80"></textarea>
+                            </div>
+                            
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>输出成果</label>&nbsp;<label class="hint">*</label>
+                            </div>
+                            <div class="col-xs-4">
+                                <textarea name="toresult" id="toresult" class="form-control" maxlength="80"></textarea>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>人员系数</label>&nbsp;<label class="hint1">*</label>
+                            </div>
+                            <div class="col-xs-2" style="width:15%;">
+                                <label id="level">0</label>
+                            </div>
+                            <div class="col-xs-1 text-right text-padding-right" >
+                                <label>固定费用</label>&nbsp;<label class="hint1">*</label>
+                            </div>
+                            <div class="col-xs-2" style="width:15%;">
+                                <label id="fixed_costs">0</label>元
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showOther">
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-right text-padding-right">
+                                <label>变动费用</label>&nbsp;<label class="hint1">*</label>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="row">
+                                    <table class="sTable1" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="hidden" name="othercost" value="市内交通" id="1">市内交通</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee1" id="1_value" oninput="getSum(this)" placeholder = "0.00" style="border:none;height:40px;" maxlength="7" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="othercost" value="差旅交通" id="2">差旅交通</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee2" id="2_value" oninput="getSum(this)" placeholder = "0.00" style="border:none;height:40px;" maxlength="7" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="othercost" value="出差补助" id="3">出差补助</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee3" id="3_value" oninput="getSum(this)" placeholder = "0.00" style="border:none;height:40px;" maxlength="7" autocomplete="off">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="hidden" name="othercost" value="住宿费" id="4">住宿费</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee4" id="4_value" oninput="getSum(this)" placeholder = "0.00"style="border:none;height:40px;" maxlength="7" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="othercost" value="其他" id="5">其他</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee5" id="5_value" oninput="getSum(this)" placeholder = "0.00" style="border:none;height:40px;" maxlength="7" autocomplete="off">
+                                                </td>
+                                                <td>
+                                                    <input type="hidden" name="othercost_L" value="小计" id="xiaoji">小计</input>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control" type="text" name="fee6"  id="6_value" autocomplete="off" readonly="readonly" placeholder = "0.00" style="border:none;height:40px;" >
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>备注</label>
+                                                </td>
+                                                <td colspan=5>
+                                                    <input class="form-control" type="text" name="remark" style="border:none;height:40px;" maxlength="80" autocomplete="off">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer text-center">
+                <div class="btn-small btn-primary" id="addwc" onclick="add_work_content()">提交</div>
+                <div class="btn-small btn-primary" id="updatewc" onclick="update_work_content()">修改</div>
+                <div class="btn-small btn-primary" id="addwc_goon" onclick="add_work_content('goon')">提交，并继续下一条</div>
+                <input type="hidden" name="work_content_id">
+                <!-- 存储记录中的flag字段 -->
+                <input type="hidden" name="work_content_flag">
+            </div>
+        </div>
+    </div>
+    <!-- 修改密码 -->
+    <div class="popup-Box" id="alterpassword" style="width:30%;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-5" id="header-title">
+                        <strong>修改密码</strong>
+                        <input type="hidden" name="member_id">
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content">
+                <div style="width: 80%; margin: 0 auto;">
+                    <div class="row div-margin">
+                        <div class="col-xs-3 text-center">
+                            <label>原始密码</label>
+                        </div>
+                        <div class="col-xs-7">
+                            <input type="password" class="form-control" id="firstpassword" name="firstpassword" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row div-margin">
+                        <div class="col-xs-3 text-center">
+                            <label>重置密码</label>
+                        </div>
+                        <div class="col-xs-7">
+                            <input type="password" class="form-control" id="newpassword" name="newpassword" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row div-margin">
+                        <div class="col-xs-3 text-center">
+                            <label>确认密码</label>
+                        </div>
+                        <div class="col-xs-7">
+                            <input type="password" class="form-control" id="renewpassword" name="renewpassword" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer text-center">
+                <div class="btn-small btn-primary" id="updatepwd" onclick="update_password()">修改</div>
+            </div>
+        </div>
+    </div>
+    <!-- 退回原因 -->
+    <div class="popup-Box" id="alter_returnReasons" style="width:30%;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-5" id="header-title">
+                        <strong>退回原因</strong>
+                        <input type="hidden" name="returnreasons_id">
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content">
+                <div style="margin: 0 auto;">
+                    <div class="row div-margin">
+                        <div class="col-xs-10">
+                            <textarea id="reasonscontent" name="reasonscontent" required="required" placeholder="请输入原因" maxlength="100" rows="5" style="resize: none;width:100%;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer text-center">
+                <div class="btn-small btn-primary" onclick="change_flag_3()">确认</div>
+            </div>
+        </div>
+    </div>
+    <!-- 筛选 -->
+    <div class="popup-Box" id="shaixuan" style="width:1000px;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div>筛选日报记录</div>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight">
+                <div class="showSelect" >
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>日期</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="datepicker11" name="starttime1" placeholder="起始日期" autocomplete="off">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="datepicker21" name="endtime1" placeholder="结束日期" autocomplete="off">
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>地点</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <select class="form-control" id="site1" name="site1">
+                                <option value="">省/市</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2" id="cityBox">
+                            <select class="form-control" id="city1" name="city1">
+                                <option value="">市/区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>合同编号</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write1" name="cont_write1" autocomplete="off" placeholder="请选择">
+                                <select class="form-control_select" id="cont1" name="cont1" style="position:absolute;">
+                                   <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>项目名称</label>
+                        </div>
+                        <div class="col-xs-5" style="width:56.66%">
+                            <div class="z-index_500" style="z-index:499;">
+                                <input class="form-control" type = "text" id = "projectname_write1" name="projectname_write1" autocomplete="off" placeholder="请选择">
+                                <select class="form-control_select" id="projectname1" name="projectname1" style="position:absolute;">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>工作类</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="worktype1" name="worktype1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>工作项</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="workitem1" name="workitem1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>客户名称</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="clientname1" name="clientname1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>销售负责人</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="sell1" name="sell1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>所属部门</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="department1" name="department1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-right text-padding-right" style="display:none;">
+                            <label>项目负责人</label>
+                        </div>
+                        <div class="col-xs-3" style="display:none;">
+                             <select class="form-control" id="dutyname1" name="dutyname1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>人员姓名</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <!-- <input type="text" class="form-control" id="staffname1" name="staffname1" readOnly="true" autocomplete="off"> -->
+                            <select class="form-control" id="staffname1" name="staffname1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clear div-margin" style="text-align:center;">
+                        <!-- <button class="btn-small btn-primary" onclick="chooseinfo()">筛选</button> -->
+                        <button class="btn-small btn-primary" onclick="produce_page_for_showAll('select');showAll_query(1,'select');$('#shaixuan').removeClass('showPopup');$('.md-overlay').removeClass('showOverlay');">筛选</button>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <button class="btn-small btn-primary" onclick="resetchoose()">重置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 项目周报提交 -->
+    <div class="popup-Box" id="updateTrack" style="width: 60%;overflow:auto;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-10 text-center" id="header-title">
+                        <h1>项 目 周 报</h1>
+                    </div>
+                    <div class="col-xs-10" style="height:10px;">
+                        <label> &nbsp; </label>
+                    </div>
+                    <div class="col-xs-10">
+                        <div class="col-xs-1">
+                            <label> &nbsp; </label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label>项目负责人：</label>
+                            <label id="dutyname2">XXX</label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label id="Serial_number" style="float:right;">XXX</label>
+                            <label style="float:right;">周报流水号：</label>
+                        </div>
+                        <div class="col-xs-1">
+                            <label> &nbsp; </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content" >
+                <div class="row">
+                    <div class="showSelect" style = "display:none">
+                        <div class="clear div-margin">
+                            <div class="col-xs-5">
+                                <h3>更新合同状态</h3>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="filePicker" id='increase_project_div' onclick="filePicker_increase_project()" style="text-align:left;">
+                                    <label id="increase_project"><i class="fa fa-plus-circle" aria-hidden="true"></i> 更新更多合同</label>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="border1" id="increase_project_box1"  style="border:1px solid #b9c5e1">
+                            <div class="clear div-margin" >
+                                <div class="col-xs-1 text-center">
+                                    <label>合同编号</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <select class="form-control" id="cont21" name="cont21">
+                                       <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>项目名称</label>
+                                </div>
+                                <div class="col-xs-5" style="width:56.66%">
+                                    <select class="form-control" id="projectname21" name="projectname21">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-1 text-center">
+                                    <label>归档情况%</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <input class="form-control" type = "text" id ="guidang21" name="guidang21" oninput="check_postive_int(this)" maxlength="3" autocomplete="off">
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>货物清点</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <!-- <input class="form-control" type = "text" id ="huowu2" name="huowu2" > -->
+                                    <select class="form-control" id="huowu21" name="huowu21">
+                                        <option value="">请选择</option>
+                                        <option value="未满足">未满足</option>
+                                        <option value="申请中">申请中</option>
+                                        <option value="已签署">已签署</option>
+                                        <option value="部分已归档">部分已归档</option>
+                                        <option value="已归档">已归档</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>初验报告</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <select class="form-control" id="chuyan21" name="chuyan21">
+                                        <option value="">请选择</option>
+                                        <option value="未满足">未满足</option>
+                                        <option value="申请中">申请中</option>
+                                        <option value="已签署">已签署</option>
+                                        <option value="部分已归档">部分已归档</option>
+                                        <option value="已归档">已归档</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-1 text-center">
+                                    <label>终验报告</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <select class="form-control" id="zhongyan21" name="zhongyan21">
+                                        <option value="">请选择</option>
+                                        <option value="未满足">未满足</option>
+                                        <option value="申请中">申请中</option>
+                                        <option value="已签署">已签署</option>
+                                        <option value="部分已归档">部分已归档</option>
+                                        <option value="已归档">已归档</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>已开票%</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <input class="form-control" type = "text" id ="yikaipiao21" name="yikaipiao21" oninput="check_postive_int(this)" maxlength="3" autocomplete="off">
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>已收款%</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <input class="form-control" type = "text" id ="yishoukuan21" name="yishoukuan21" oninput="check_postive_int(this)" maxlength="3" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showSelect">
+                        <div class="clear div-margin">
+                            <div class="col-xs-5">
+                                <h3>项目周报</h3>
+                            </div>
+                            <div class="col-xs-5">
+                                <div class="filePicker" id="increase_project1_div" onclick="filePicker_increase_project1()" style="text-align:left;">
+                                    <label id="increase_project1"><i class="fa fa-plus-circle" aria-hidden="true"></i> 报告更多项目</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border11" id="increase_project_box11" style="border:1px solid #b9c5e1;">
+                            <div class="clear div-margin">
+                                <div class="col-xs-1 text-center">
+                                    <label>合同编号</label>
+                                </div>
+                                <div class="col-xs-3" style="width:23.33%">
+                                    <select class="form-control" id="cont31" name="cont31" >
+                                       <option value="">请选择</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <label>项目名称</label>
+                                </div>
+                                <div class="col-xs-5" style="width:56.66%">
+                                    <select class="form-control" id="projectname31" name="projectname31">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-1 text-center">
+                                    <label>上周动态</label>
+                                </div>
+                                <div class="col-xs-9">
+                                   <input class="form-control" type = "text" id = "Last_week_trends31" name="Last_week_trends31"placeholder="请输入" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="clear div-margin">
+                                <div class="col-xs-1 text-center">
+                                    <label>下周计划</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <input class="form-control" type = "text" id = "Next_week_plan31" name="Next_week_plan31" placeholder="请输入" autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer text-center">
+                <div class="btn-small btn-primary" id="Sign_out" onclick="signout()">直接退出</div>
+                <div class='btn-small' style="cursor:default;" id="Space">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                <div class="btn-small btn-primary" id="updatepc" onclick="updateTrack()">提交周报</div>
+            </div>
+        </div>
+    </div>
+    <!-- 修改项目的备注一栏 -->
+    <div class="popup-Box" id="updateTrack_remark" style="width: 60%;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                <div class="row">
+                    <div class="col-xs-5" id="header-title">
+                        <strong>更新进度</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content" >
+                <div class="row">
+                    <div class="showSelect">
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-center">
+                                <label>合同编号</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%" >
+                                <input class="form-control" type = "text" id = "cont2" name="cont2" readonly="readonly" style="background-color:rgba(127,127,127,0.1);" autocomplete="off">
+                            </div>
+                            <div class="col-xs-1">
+                               
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>项目名称</label>
+                            </div>
+                            <div class="col-xs-4" style="width:56.66%">
+                                <input class="form-control" type = "text" id = "projectname2" name="projectname2" readonly="readonly" style="background-color:rgba(127,127,127,0.1);" autocomplete="off">
+                                <!-- border:none;webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0); -->
+                            </div>
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-center">
+                                <label>项目状态</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <select class="form-control" id="state2" name="state2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);">
+                                    <option value="">请选择</option>
+                                    <option value="进行中">进行中</option>
+                                    <option value="已关闭">已关闭</option>
+                                    <option value="已归档">已归档</option>
+                                    <option value="已结项">已结项</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>采购情况</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <select class="form-control" id="caigou2" name="caigou2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);">
+                                    <option value="">请选择</option>
+                                    <option value="未采购">未采购</option>
+                                    <option value="部分采购">部分采购</option>
+                                    <option value="完成采购">完成采购</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>到货状态</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <select class="form-control" id="daohuo2" name="daohuo2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);">
+                                    <option value="">请选择</option>
+                                    <option value="未到货">未到货</option>
+                                    <option value="部分到货">部分到货</option>
+                                    <option value="全部到货">全部到货</option>
+                                </select>
+                            </div>
+                            <!-- <div class="col-xs-1 text-center"> -->
+                                <!-- <label>实施情况</label> -->
+                            <!-- </div> -->
+                            <!-- <div class="col-xs-3" style="width:23.33%"> -->
+                                <!-- <select class="form-control" id="shishi2" name="shishi2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);"> -->
+                                    <!-- <option value="">请选择</option> -->
+                                    <!-- <option value="未实施">未实施</option> -->
+                                    <!-- <option value="正在实施">正在实施</option> -->
+                                    <!-- <option value="已完成实施">已完成实施</option> -->
+                                <!-- </select> -->
+                            <!-- </div> -->
+                            
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-center">
+                                <label>归档情况%</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <input class="form-control" type = "text" id ="guidang2" name="guidang2" oninput="check_postive_int(this)" maxlength="3"  readonly="readonly" style="background-color:rgba(127,127,127,0.1);" autocomplete="off">
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>货物清点</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <!-- <input class="form-control" type = "text" id ="huowu2" name="huowu2" > -->
+                                <select class="form-control" id="huowu2" name="huowu2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);">
+                                    <option value="">请选择</option>
+                                    <option value="未满足">未满足</option>
+                                    <option value="申请中">申请中</option>
+                                    <option value="已签署">已签署</option>
+                                    <option value="部分已归档">部分已归档</option>
+                                    <option value="已归档">已归档</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>初验报告</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%" >
+                                <!-- <input class="form-control" type = "text" id ="chuyan2" name="chuyan2" > -->
+                                <select class="form-control" id="chuyan2" name="chuyan2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);">
+                                    <option value="">请选择</option>
+                                    <option value="未满足">未满足</option>
+                                    <option value="申请中">申请中</option>
+                                    <option value="已签署">已签署</option>
+                                    <option value="部分已归档">部分已归档</option>
+                                    <option value="已归档">已归档</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="clear div-margin">
+                           <div class="col-xs-1 text-center">
+                                <label>终验报告</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <!-- <input class="form-control" type = "text" id ="zhongyan2" name="zhongyan2" > -->
+                                <select class="form-control" id="zhongyan2" name="zhongyan2" disabled="disabled" style="background-color:rgba(127,127,127,0.1);" >
+                                    <option value="">请选择</option>
+                                    <option value="未满足">未满足</option>
+                                    <option value="申请中">申请中</option>
+                                    <option value="已签署">已签署</option>
+                                    <option value="部分已归档">部分已归档</option>
+                                    <option value="已归档">已归档</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>已开票%</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <input class="form-control" type = "text" id ="yikaipiao2" name="yikaipiao2" oninput="check_postive_int(this)" maxlength="3"  readonly="readonly" style="background-color:rgba(127,127,127,0.1);" autocomplete="off">
+                            </div>
+                            <div class="col-xs-1 text-center">
+                                <label>已收款%</label>
+                            </div>
+                            <div class="col-xs-3" style="width:23.33%">
+                                <input class="form-control" type = "text" id ="yishoukuan2" name="yishoukuan2" oninput="check_postive_int(this)" maxlength="3"  readonly="readonly" style="background-color:rgba(127,127,127,0.1);" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="clear div-margin">
+                            <div class="col-xs-1 text-center">
+                                <label>备注</label>&nbsp;<label class="hint ">*</label>
+                            </div>
+                            <div class="col-xs-9" >
+                                <input class="form-control" type = "text" id ="beizhu2" name="beizhu2" placeholder="（下笔收款的条件和%百分比，预计时间点）（或其它需要说明的事项）" autocomplete="off">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer text-center">
+                <div class="btn-small btn-primary" id="updatewc" onclick="updateTrack_remark()">确认更新</div>
+                <input type="hidden" name="track_id">
+            </div>
+        </div>
+    </div>
+    <!-- 筛选合同 -->
+    <div class="popup-Box" id="shaixuan_ht" style="width: 1000px;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5" id="header-title">
+                        <strong class="popup-header—strong">筛选合同</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight">
+                <div class="showSelect">
+                    <div class="clear div-margin" id='select_ht_name'>
+                        <div class="col-xs-1 text-center">
+                            <label>项目名称</label>
+                        </div>
+                        <div class="col-xs-4" style="width:56.66%">
+                            <div class="z-index_500" style="z-index:499;">
+                                <input class="form-control" type = "text" id = "projectname_write3" name="projectname_write3" placeholder="请选择" autocomplete="off">
+                                <select class="form-control_select" id="projectname3" name="projectname3" style="position:absolute;" autocomplete="off">
+                                    <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>合同编号</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write3" name="cont_write3"  placeholder="请选择" autocomplete="off">
+                                <select class="form-control_select" id="cont3" name="cont3" style="position:absolute;">
+                                   <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1  text-center">
+                            <label>上次更新日期</label>
+                        </div>
+                        <div class="col-xs-2" style="width:28.33%">
+                            <input type="text" class="form-control" id="datepicker3" name="starttime3" placeholder="开始日期" autocomplete="off">
+                        </div>
+                        <div class="col-xs-2" style="width:28.33%">
+                            <input type="text" class="form-control" id="datepicker4" name="endtime3" placeholder="结束日期" autocomplete="off">
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>项目类型</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="type3" name="type3">
+                                <option value="">请选择</option>
+                                <option value="1-系统集成">1-系统集成</option>
+                                <option value="2-网络集成">2-网络集成</option>
+                                <option value="3-仅供货">3-仅供货</option>
+                                <option value="4-维保服务">4-维保服务</option>
+                                <option value="5-服务外包">5-服务外包</option>
+                            </select>
+                        </div> 
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>项目状态</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="state3" name="state3">
+                                <option value="">请选择</option>
+                                <option value="进行中">进行中</option>
+                                <option value="已关闭">已关闭</option>
+                                <option value="已归档">已归档</option>
+                                <option value="已结项">已结项</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>采购状态</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="caigou3" name="caigou3">
+                                <option value="">请选择</option>
+                                <option value="未采购">未采购</option>
+                                <option value="部分采购">部分采购</option>
+                                <option value="完成采购">完成采购</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>到货状态</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="daohuo3" name="daohuo3">
+                                <option value="">请选择</option>
+                                <option value="未到货">未到货</option>
+                                <option value="部分到货">部分到货</option>
+                                <option value="全部到货">全部到货</option>
+                            </select>
+                        </div>
+                        <!-- <div class="col-xs-1 text-center"> -->
+                            <!-- <label>实施情况</label> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-xs-3" style='width:23.33%'> -->
+                            <!-- <select class="form-control" id="shishi3" name="shishi3"> -->
+                                <!-- <option value="">请选择</option> -->
+                                <!-- <option value="未实施">未实施</option> -->
+                                <!-- <option value="正在实施">正在实施</option> -->
+                                <!-- <option value="已完成实施">已完成实施</option> -->
+                            <!-- </select> -->
+                        <!-- </div> -->
+                        
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>客户名称</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="clientname3" name="clientname3">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>项目负责人</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="dutyname3" name="dutyname3">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>销售负责人</label>
+                        </div>
+                        <div class="col-xs-3" style='width:23.33%'>
+                            <select class="form-control" id="sell3" name="sell3">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center" style="text-align:center;">
+                            <button class="btn-small btn-primary" onclick="chooseinfo_ht()">筛选</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 筛选归档记录 -->
+    <div class="popup-Box" id="shaixuanArchive" style="width:1000px;overflow: visible;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                        <strong class="popup-header—strong">筛选归档记录</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel">
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight" style="overflow: visible;">
+                <div class="showSelect" >
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>合同编号</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write4" name="cont_write4" autocomplete="off" placeholder="请选择">
+                                <select class="form-control_select" id="cont4" name="cont4" style="position:absolute;">
+                                   <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>项目名称</label>
+                        </div>
+                        <div class="col-xs-5" style="width:56.66%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "projectname_write4" name="projectname_write4" autocomplete="off" placeholder="请选择">
+                                <select class="form-control_select" id="projectname4" name="projectname4" style="position:absolute;">
+                                    <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                         <div class="col-xs-1 text-center">
+                            <label>报告类</label>
+                        </div>
+                        <div class="col-xs-2" style="width:15%">
+                            <select class="form-control" id="docum_type1" name="docum_type1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div> 
+                        <div class="col-xs-1 text-center">
+                            <label>报告项</label>
+                        </div>
+                        <div class="col-xs-2" style="width:15%">
+                            <select class="form-control" id="docum_item1" name="docum_item1">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1  text-center">
+                            <label>初始登记日期</label>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="datepicker41" name="starttime41" placeholder="开始日期" autocomplete="off">
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="text" class="form-control" id="datepicker42" name="endtime41" placeholder="结束日期" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                     <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                     <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center" style="text-align:center;">
+                            <button class="btn-small btn-primary" onclick="chooseinfo_archive()">筛选</button>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <button class="btn-small btn-primary" onclick="resetchoose_archive()">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--查看设备信息登记-->
+    <div id="add_equipment_pop1" >
+        
+    </div>
+    <script>$("#add_equipment_pop1").load("./popup/add_equipment_pop.html?'+Math.random();+'");</script>
+    <!--筛选设备信息登记-->
+    <div id="shaixuanequipment1" >
+        
+    </div>
+    <script>$("#shaixuanequipment1").load("./popup/select_equipment_pop.html?'+Math.random();+'");</script>
+    <!-- 官网查询入口弹窗 -->
+    <div id="official_warranty_entrance_pop1" >
+        
+    </div>
+    <script>$("#official_warranty_entrance_pop1").load("./popup/official_warranty_entrance_pop.html?'+Math.random();+'");</script>
+    
+    <div class="md-overlay"></div>
+</body>
+<script>$(".marquee").parent().css("padding","0 0");</script>
+<script src="/static/js/user_select_input.js?'+Math.random();+'"></script>
+<script src="/static/js/alert_and_confirm.js?'+Math.random();+'"></script>
+<script src="/static/js/moment.js"></script>
+<script src="/static/js/pikaday.js"></script>
+<script src="/static/js/jquery.searchableSelect.js"></script>
+<script src="/static/js/public.js?'+Math.random();+'"></script>
+<script src="/static/js/address.js"></script>
+<script src="/static/js/paging.js"></script>
+<script src="/static/js/user.js?'+Math.random();+'"></script>
+<script src="/static/js/equipment_js/equipment.js?'+Math.random();+'"></script>
+<script src="/static/js/equipment_js/display_equip.js?'+Math.random();+'"></script>
+<script src="/static/js/input_select_js/input_select.js?'+Math.random();+'"></script>
+<script src="/static/js/auto_matching_js/auto_matching.js?'+Math.random();+'"></script>
+
+</html>

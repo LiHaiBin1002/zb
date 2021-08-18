@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body>  
+    <div class="col-xs-10">
+        <div class="col-xs-5">
+            <div class="admin-right-header">
+                <h3>
+                    <span>设备信息记录</span>
+                </h3>
+            </div>
+        </div>
+       
+        <div class="col-xs-5" >
+            <div class="tab-header" style="overflow:hidden;float:right;">
+                <div class="filePicker"  style="width:40px;">
+                    <span>&nbsp;<span>
+                </div>
+                <div class="filePicker" id="Equipment_Div" style="text-align:right;margin-left:25px;" onclick="add_equipment_btn()">
+                    <label id="Equipment_Label"><i class="fa fa-plus-circle" ></i> 修改合同设备</label>
+                </div>
+                <div class="filePicker" id="Equipment_Div2" style="text-align:right;margin-left:25px;" onclick="search_equiment()">
+                    <label><i class="fa fa-search" ></i> 筛选设备登记 </label>
+                </div>
+                <div class="filePicker" id="Equipment_Div4" style="text-align:right;">
+                    <label><i class="fa fa-arrow-circle-up" ></i> 导入设备信息 </label>
+                    <input id="equipment_fileInput" type="file" name="equipment_file" onclick="upload_equpment()" >
+                </div>
+                <!-- <div class="filePicker" id="Equipment_Div5" style="margin-right: 25px;" onclick="update_warranty()"> -->
+                    <!-- <label><i class="fa fa-wrench" ></i> 更新保修信息 </label> -->
+                <!-- </div> -->
+                <div class="filePicker" id="Equipment_Div6" style="width:125px;margin-right: 25px;" onclick="official_query_warranty_pop()">
+                    <label><i class="fa fa-wrench" ></i> 官网查询保修期</label>
+                </div>
+                <div class="filePicker" id="Equipment_Div3" style="text-align:center;" onclick="displayEquipment()">
+                    <label><i class=" fa fa-reply" ></i> 返回 </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="showContent">
+        <div class="tablebox">
+            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                <thead>
+                    <tr id="title_project">
+                        <th >操作</th>
+                        <th >合同编号</th>
+                        <th style="text-align: left;">项目名称</th>
+                        <th >初始登记日期</th>
+                        <th >最后修改日期</th>
+                        <th >项目负责人</th>
+                        <th >登记人</th>
+                        <th >备注</th>
+                    </tr>
+                </thead>
+                <tbody id="show_equipment">
+                </tbody>
+            </table>
+        </div>
+        <div id="paging3" style='position: relative;text-align: center'></div>
+    </div>
+</body>

@@ -1,0 +1,59 @@
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+Error in atexit._run_exitfuncs:  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+    func(*targs, **kargs)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 173, in _shutdown_executors
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 173, in _shutdown_executors
+    executor.join(1)
+    executor.join(1)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 96, in join
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 96, in join
+    self._thread.join(timeout)
+    self._thread.join(timeout)
+  File "/usr/lib64/python2.7/threading.py", line 955, in join
+  File "/usr/lib64/python2.7/threading.py", line 955, in join
+    self.__block.wait(delay, balancing)
+  File "/usr/lib64/python2.7/threading.py", line 363, in wait
+    _sleep(delay)
+    self.__block.wait(delay, balancing)
+KeyboardInterrupt
+  File "/usr/lib64/python2.7/threading.py", line 363, in wait
+    _sleep(delay)
+KeyboardInterrupt
+Error in sys.exitfunc:
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 20, 2020 - 23:03:24
+Django version 1.11.12, using settings 'lc_server.settings'
+Starting development server at http://10.30.41.17:80/
+Quit the server with CONTROL-C.
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 173, in _shutdown_executors
+    executor.join(1)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 96, in join
+    self._thread.join(timeout)
+  File "/usr/lib64/python2.7/threading.py", line 955, in join
+Error in sys.exitfunc:
+Traceback (most recent call last):
+  File "/usr/lib64/python2.7/atexit.py", line 24, in _run_exitfuncs
+    func(*targs, **kargs)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 173, in _shutdown_executors
+    self.__block.wait(delay, balancing)
+      File "/usr/lib64/python2.7/threading.py", line 363, in wait
+executor.join(1)
+  File "/usr/lib64/python2.7/site-packages/pymongo/periodic_executor.py", line 96, in join
+    self._thread.join(timeout)
+  File "/usr/lib64/python2.7/threading.py", line 955, in join
+    _sleep(delay)
+KeyboardInterrupt
+    self.__block.wait(delay, balancing)
+  File "/usr/lib64/python2.7/threading.py", line 363, in wait
+    _sleep(delay)
+KeyboardInterrupt

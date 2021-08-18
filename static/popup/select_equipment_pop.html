@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body>
+    <!-- 筛选设备信息 -->
+    <div class="popup-Box" id="shaixuanequipment" style="width:1000px;overflow: visible;">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                        <strong class="popup-header—strong">筛选设备信息</strong>
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel" onclick='cancel_click()'>
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight" style="overflow: visible;">
+                <div class="showSelect" >
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>合同编号</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write6" name="cont_write6" autocomplete="off" placeholder="请选择" oninput="input_oninput('cont_write6','cont6',Fill_Select)" onclick="input_onclick('cont6')">
+                                <select class="form-control_select" id="cont6" name="cont6" style="position:absolute;"  onchange="select_onchange('cont_write6','cont6');Auto_Matching('cont6','projectname6','dutyname6')">
+                                   <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>项目名称</label>
+                        </div>
+                        <div class="col-xs-5" style="width:56.66%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "projectname_write6" name="projectname_write6" placeholder="请选择" autocomplete="off" oninput="input_oninput('projectname_write6','projectname6',Fill_Select)" onclick="input_onclick('projectname6')">
+                                <select class="form-control_select" id="projectname6" name="projectname6" style="position:absolute;" onchange="select_onchange('projectname_write6','projectname6');Auto_Matching('projectname6','cont6','dutyname6')">
+                                    <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-right">
+                            <label>项目负责人&nbsp;</label>
+                        </div>
+                        <div class="col-xs-3" style="width:23.33%">
+                            <select class="form-control" id="dutyname6" name="dutyname6" >
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <label>序列号</label>
+                        </div>
+                        <div class="col-xs-5 text-center" style="width:56.66%">
+                            <input class="form-control" type = "text" id = "equipment_ser_num6" name="equipment_ser_num6" onkeyup="value=value.replace(/[^\w\-]/g,'')">
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-center">
+                            <label>品牌</label>
+                        </div>
+                        <div class="col-xs-2" >
+                            <select class="form-control" id="brand7" name="brand7" onchange="change_equip_search_select(1,'7')">
+                               <option value=''>请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center" >
+                            <label>类型</label>
+                        </div>
+                        <div class="col-xs-2" >
+                            <select class="form-control" id="type7" name="type7" onchange="change_equip_search_select(2,'7')">
+                                <option value=''>请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1 text-center" >
+                            <label>型号</label>
+                        </div>
+                        <div class="col-xs-3 text-center">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "model_write7" name="model_write7" placeholder="请选择" autocomplete="off" oninput="input_oninput('model_write7','model7',Filling_model)" onclick="input_onclick('model7')">
+                                <select class="form-control_select" id="model7" name="model7" style="position:absolute;" onchange="select_onchange('model_write7','model7');change_equip_search_select(3,'7')">
+                                        <option value=''>请选择</option>
+                                    </select>
+                                <!-- <input class="form-control" type = "text" id = "model6" name="model6" > -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center">
+                           &nbsp;
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-center" style="text-align:center;">
+                            <button class="btn-small btn-primary" onclick="chooseinfo_equipment()">筛选</button>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <button class="btn-small btn-primary" onclick="resetchoose_equipment()">重置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

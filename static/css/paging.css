@@ -1,0 +1,65 @@
+.pagebox {
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    overflow: hidden;
+    padding-bottom: 10px;
+    width:auto;
+    display:inline-block !important; 
+    display:inline; 
+  }
+  .pagebox button {
+    padding: 0 10px;
+    margin: 0 10px;
+    height: 30px;
+    float: left;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    background-color: #ffffff;
+  }
+  .pagebox .first-page,
+  .pagebox .last-page {
+    margin: 0;
+  }
+  .pagebox .pageWrap {
+    height: 30px;
+    float: left;
+    overflow: hidden;
+  }
+  .pagebox .pageWrap ul {
+    width: 100000px;
+    height: 30px;
+    float: left;
+  }
+  .pagebox .pageWrap ul li {
+    width: 60px;
+    height: 30px;
+    border: 1px solid #ebebeb;
+    line-height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    float: left;
+  }
+  .pagebox .pageWrap ul .sel-page {
+    background-color: #ccc;
+  }
+  .pagebox .jump-text {
+    width: 60px;
+    height: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0 5px;
+    float: left;
+  }
+  .pagebox .jump-button {
+    margin: 0;
+    float: left;
+  }
+  .pagebox .total-pages,
+  .pagebox .total-count {
+    margin-left: 10px;
+    float: left;
+    font-size: 14px;
+  }

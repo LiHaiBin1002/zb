@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body> 
+<!-- <div style="font-size:20px">  -->
+    <div class="col-xs-10">
+        <div class="col-xs-5">
+            <div class="admin-right-header">
+                <h2 style="text-align:left;">
+                    <span class='pro_per_span1 libg' onclick='project_per_span_click()'style='cursor: pointer;font-size:16px;'>项目绩效</span>
+                    <span style = 'font-size:16px;color:#0b7ac1'> | </span>
+                    <span class='pro_per_span2' onclick='personsal_per_span_click()' style='font-size:6px;cursor: pointer;font-size:16px;'>人员绩效</span>
+                    <!-- <span style = 'font-size:16px;color:#0b7ac1'> | </span> -->
+                    <!-- <span class='pro_per_span3' onclick='project_imp_span_click()' style='font-size:6px;cursor: pointer;font-size:16px;'>项目执行情况</span> -->
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class='project_performance_div'> 
+        <div class="showContent">
+            <div class="col-xs-10">
+                <div class="clear div-margin"></div>
+                <div class="clear div-margin">
+                    <div class="col-xs-1 text-right text-padding-right">
+                        <label style="font-size:16px;font-weight:bold;">项目负责人</label>
+                    </div>
+                    <div class="col-xs-1" style='width:10%'>
+                        <select class="form-control" id="dutyname8" name="dutyname8" onchange="change_dutyname('8')">
+                            <option value="">请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-1 text-right text-padding-right" >
+                        <label style="font-size:16px;font-weight:bold;">合同编号</label>
+                    </div>
+                    <div class="col-xs-2" style='width:15%'>
+                       <div class="z-index_500">
+                            <input class="form-control" type = "text" id = "cont_write8" name="cont_write8" autocomplete="off" placeholder="请选择"  oninput="input_oninput('cont_write8','cont8',Fill_Select)" onclick="input_onclick('cont8')">
+                            <select class="form-control_select" id="cont8" name="cont8" style="position:absolute;top:34px;"  onchange="select_onchange('cont_write8','cont8');Auto_Matching('cont8','projectname8','dutyname8');display_cont_performance()">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 text-right text-padding-right">
+                        <label style="font-size:16px;font-weight:bold;">项目名称</label>
+                    </div>
+                    <div class="col-xs-2" >
+                        <div class="z-index_500">
+                            <input class="form-control" type = "text" id = "projectname_write8" name="projectname_write8" autocomplete="off" placeholder="请选择" oninput="input_oninput('projectname_write8','projectname8',Fill_Select)" onclick="input_onclick('projectname8')">
+                            <select class="form-control_select" id="projectname8" name="projectname8" style="position:absolute;top:34px" onchange="select_onchange('projectname_write8','projectname8');Auto_Matching('projectname8','cont8','dutyname8');display_cont_performance()" onmouseenter="FixWidth(this)">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-xs-1 text-right text-padding-right">
+                            <label  style="font-size:16px;font-weight:bold;">查询日期：</label>
+                        </div>
+                        <div class="col-xs-1" style='width:15%'>
+                            <label id = 'search_personnel_input_data'>2020年03月25日</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear div-margin"></div>
+            </div>
+            <div class="col-xs-10">
+                <div class="col-xs-5"  style="width:33%;float:left;">
+                    <!-- <div class="col-xs-10"> -->
+                        <!-- <h3><label>人员投入情况：</label></h3> -->
+                    <!-- </div> -->
+                    <div style="height:500px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr>
+                                        <th style="height:40px;font-size:1.17em" colspan=6>人员投入实时动态（实施阶段）</th>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <th >工程师级别</th>
+                                        <th >系数</th>
+                                        <th >预估总人日</th>
+                                        <th >增减项</th>
+                                        <th >已发生总人日</th>
+                                        <th >偏离值</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_cont_performance_people">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5"  style="width:33%;float:left;">
+                    <!-- <div class="col-xs-10"> -->
+                        <!-- <h3><label>人员投入情况：</label></h3> -->
+                    <!-- </div> -->
+                    <div style="height:500px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr>
+                                        <th style="height:40px;font-size:1.17em" colspan=6>人员投入实时动态（保修阶段）</th>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <th >工程师级别</th>
+                                        <th >系数</th>
+                                        <th >预估总人日</th>
+                                        <th >增减项</th>
+                                        <th >已发生总人日</th>
+                                        <th >偏离值</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_cont_performance_people1">
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5" style="width:33%;float:right;">
+                    <!-- <div class="col-xs-10"> -->
+                        <!-- <h3><label>工程量投入情况：</label></h3> -->
+                    <!-- </div> -->
+                    <div style="height:500px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr>
+                                        <th style="height:40px;font-size:1.17em" colspan=4>工程量投入情况（Top9）</th>
+                                    </tr>
+                                    <tr style="height:50px;">
+                                        <th >工作类</th>
+                                        <th >工作项</th>
+                                        <th >总人日</th>
+                                        <th >该项占总工程量%</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_cont_performance_work">
+                                    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+        </div>
+    </div>
+    <div class='personal_performance_div' style='display:none;'>
+        <div class="showContent">
+            <div class="col-xs-10">
+                <div class="clear div-margin"></div>
+                <div class="clear div-margin">
+                    <div class="col-xs-1 text-right text-padding-right" style='width:8%'>
+                        <label style="font-size:16px;font-weight:bold;">人员姓名</label>&nbsp;<label class='hint'>*</label>
+                    </div>
+                    <div class="col-xs-1" style='width:8%'>
+                        <select class="form-control" id="staffname8" name="staffname8">
+                            <option value="">请选择</option>
+                        </select>
+                    </div> 
+                    <div class='col-xs-1' style='width:5%'>&nbsp;</div>
+                    <div class='col-xs-2' style='width:12%'>
+                        <div class='col-xs-3'> 
+                            <select class="form-control" id="choice_Year" name="choice_Year">
+                                <option value="">请选择</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                        <div class='col-xs-2'>
+                            <label style="font-size:16px;font-weight:bold;">年</label>
+                        </div>
+                        <div class='col-xs-3'> 
+                            <select class="form-control" id="choice_Month" name="choice_Month">
+                                <option value="">请选择</option>
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class='col-xs-2'>
+                            <label style="font-size:16px;font-weight:bold;">月</label>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 text-right text-padding-right" style='width:8%' >
+                        <label style="font-size:16px;font-weight:bold;">合同编号</label>
+                    </div>
+                    <div class="col-xs-2" style='width:12.5%'>
+                       <div class="z-index_500">
+                            <input class="form-control" type = "text" id = "cont_write81" name="cont_write81" autocomplete="off" placeholder="请选择"  oninput="input_oninput('cont_write81','cont81',Fill_Select)" onclick="input_onclick('cont81')">
+                            <select class="form-control_select" id="cont81" name="cont81" style="position:absolute;top:34px;"  onchange="select_onchange('cont_write81','cont81');Auto_Matching('cont81','projectname81','dutyname81');">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 text-right text-padding-right" style='width:8%'>
+                        <label style="font-size:16px;font-weight:bold;">项目名称</label>
+                    </div>
+                    <div class="col-xs-2" style='width:27%'>
+                        <div class="z-index_500">
+                            <input class="form-control" type = "text" id = "projectname_write81" name="projectname_write81" autocomplete="off" placeholder="请选择" oninput="input_oninput('projectname_write81','projectname81',Fill_Select)" onclick="input_onclick('projectname81')">
+                            <select class="form-control_select" id="projectname81" name="projectname81" style="position:absolute;top:34px" onchange="select_onchange('projectname_write81','projectname81');Auto_Matching('projectname81','cont81','dutyname81');" onmouseenter="FixWidth(this)">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 text-right" style='width:8%'>
+                        <label  style="width:50%;display:inline-block;font-size:16px;font-weight:bold;background:#0b7ac1;color:#ffffff;text-align: center;border-radius: 5px;" onclick="query_personal_performance()"> <i class='fa fa-search'></i>查询 </label>
+                    </div>
+                </div>
+                <div class="clear div-margin"></div>
+            </div>
+            <div class="col-xs-1">&nbsp;</div>
+            <div class="col-xs-8" >
+                <div class="col-xs-3"  style="float:left;width:35%;">
+                    <div style="height:600px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr style="background:#FFF2CC;">
+                                        <th id = 'engineering_number_Top9' style="height:40px;font-size:1.17em;" colspan=4>工程量投入情况（Top9）</th>
+                                    </tr>
+                                    <tr style="height:50px;background:#FFF2CC">
+                                        <th >工作类</th>
+                                        <th >工作项</th>
+                                        <th >总人日</th>
+                                        <th >占比%</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_cont_performance_people2">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6" style="float:right;width:65%">
+                    <div style="height:600px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr style="background:#FFF2CC;">
+                                        <th style="height:40px;font-size:1.17em;" colspan=3>各项目投入情况（Top9）</th>
+                                    </tr>
+                                    <tr style="height:50px;background:#FFF2CC;">
+                                        <th >项目名称</th>
+                                        <th >总人日</th>
+                                        <th >占比%</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_cont_performance_work1">
+                                    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10">&nbsp;</div>
+                <div class="col-xs-10" >
+                    <div style="height:500px; position:relative;">
+                        <div class="tablebox " >
+                            <table cellspacing="0" cellpadding="0" border="0" class="displayTable">
+                                <thead>
+                                    <tr style="background:#FFF2CC;">
+                                        <th style="height:40px;font-size:1.17em;" colspan=7>Top9项目投入情况（Top3工作项）</th>
+                                    </tr>
+                                    <tr style="height:50px;background:#FFF2CC;">
+                                        <th >项目名称</th>
+                                        <th >工作项1</th>
+                                        <th >占比%</th>
+                                        <th >工作项2</th>
+                                        <th >占比%</th>
+                                        <th >工作项3</th>
+                                        <th >占比%</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="show_Top9project_workitemTop3">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8 ProjectImplementTop5">
+                
+            </div>
+            <div class="col-xs-1">&nbsp;</div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+            <div class="clear div-margin"></div>
+        </div>
+    </div>
+<!-- </div> -->
+
+</body>
+</html>

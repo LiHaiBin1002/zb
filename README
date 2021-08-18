@@ -1,0 +1,13 @@
+周报系统镜像化
+Dockerfile：构建文件
+run.sh：容器内运行的脚本，启动应用
+requirement.txt：依赖包
+
+docker build . -t zbxt:v2 -f Dockerfile
+docker run -d -p 8000:8000 --name test zbxt:v2
+docker exec -it test bash
+
+# 初次启动需初始化创建一些数据库表
+#    python2 manage.py makemigrations
+#    python2 manage.py migrate
+#    python2 manage.py createsuperuser

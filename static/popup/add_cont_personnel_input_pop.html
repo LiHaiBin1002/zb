@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>  
+<body> 
+    <div class="popup-Box" id="add_cont_personnel_input_pop" style="width: 60%;    overflow: auto;max-height:782px">
+        <div class="popup-Content-box">
+            <div class="popup-header">
+                 <div class="row">
+                    <div class="col-xs-5">
+                        <strong class="popup-header—strong" id = "personnel_input_title">新增投入信息</strong>
+                    </div>
+                    <!-- 用于保存要修改的记录的id -->
+                    <!-- <input type = "hidden" id = "update_personnel_input_id" name = "update_personnel_input_name"> -->
+                    <div class="col-xs-5 text-right">
+                        <span class="cancel" onclick='cancel_click()'>
+                            <i class="fa fa-close cancel"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-content div-lineheight">
+                <div class="showSelect">
+                    <div class="clear div-margin">
+                        <div class="col-xs-1 text-right" >
+                            <label>合同编号</label><label class="hint">*&nbsp;</label>
+                        </div>
+                        <div class="col-xs-2" style="width:18%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "cont_write9" name="cont_write9"  placeholder="请选择" autocomplete="off" oninput="input_oninput('cont_write9','cont9',Fill_Select)" onclick="input_onclick('cont9')">
+                                <select class="form-control_select" id="cont9" name="cont9" style="position:absolute;" onchange="select_onchange('cont_write9','cont9');Auto_Matching('cont9','projectname9','dutyname9')">
+                                   <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-right" >
+                            <label>项目名称</label><label class="hint">*&nbsp;</label>
+                        </div>
+                        <div class="col-xs-4" style="width:40%">
+                            <div class="z-index_500">
+                                <input class="form-control" type = "text" id = "projectname_write9" name="projectname_write9" placeholder="请选择" autocomplete="off" oninput="input_oninput('projectname_write9','projectname9',Fill_Select)" onclick="input_onclick('projectname9')">
+                                <select class="form-control_select" id="projectname9" name="projectname9" style="position:absolute;" onchange="select_onchange('projectname_write9','projectname9');Auto_Matching('projectname9','cont9','dutyname9')">
+                                    <option value=''>请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <label>项目负责人&nbsp;</label>
+                        </div>
+                        <div class="col-xs-1" style="width:12%">
+                            <select class="form-control" id="dutyname9" name="dutyname9" disabled ="disabled" style="background-color:rgba(127,127,127,0.1)" onchange="change_dutyname('9')">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-2 text-left">
+                            <label>预估实施总人日：</label>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-right">
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="初级">初级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'imp_primary' name = 'imp_primary'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="中级">中级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'imp_intermediate' name = 'imp_intermediate'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="高级">高级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'imp_senior' name = 'imp_senior'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="高级+" >高级以上&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'imp_senior_plus' name = 'imp_senior_plus'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="其他" >其他&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'imp_other_level' name = 'imp_other_level'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-2 text-left">
+                            <label>预估维保总人日：</label>
+                        </div>
+                    </div>
+                    <div class="clear div-margin">
+                        <div class="col-xs-10 text-right">
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="初级">初级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'gua_primary' name = 'gua_primary'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="中级">中级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'gua_intermediate' name = 'gua_intermediate'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="高级">高级&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'gua_senior' name = 'gua_senior'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="高级+" >高级以上&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'gua_senior_plus' name = 'gua_senior_plus'>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input type="hidden" value="其他" >其他&nbsp;&nbsp;</input>
+                            </div>
+                            <div class="col-xs-1 text-right">
+                                <input class="form-control" type="text" oninput="checknum0_999(this)" placeholder = "0" maxlength="4" autocomplete="off" id = 'gua_other_level' name = 'gua_other_level'>
+                            </div>
+                        </div>
+                    </div>
+                            
+                    <div class="clear div-margin" style="margin-top:10px;">
+                        <div class="col-xs-1 text-right" >
+                            <label>备注&nbsp;</label>
+                        </div>
+                        <div class="col-xs-9" >
+                            <textarea class="form-control" type = "text"  id='personnel_input_remake' name="personnel_input_remake"  autocomplete="off" maxlength='100'></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center div-margin clear">
+                        <div class="btn-small btn-primary" id="add_personnel_input_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Add_Personnel_Input_Confirm()">添加</div>
+                        <!-- <div class="btn-small btn-primary" id="update_personnel_input_confirm" style="margin-right:50px;padding:3px 25px;" onclick="Update_Personnel_Input_Confirm()">修改</div> -->
+                        <div class="btn-small btn-primary " id="closes_personnel_input_popup" style="padding:3px 25px;background:white;color:#2197DD;" onclick='cancel_click()'>退出</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

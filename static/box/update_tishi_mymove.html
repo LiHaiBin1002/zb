@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            .marquee {
+                width: 100%;
+                margin: 0 auto;
+                overflow: hidden;
+                white-space: nowrap;
+                font-size:16px;
+                box-sizing: border-box;
+                animation: marquee 30s linear infinite;
+            }
+            
+            .marquee:hover {
+                animation-play-state: paused
+            }
+            /* Make it move */
+            /* public.js中动态改变 */
+            
+           <!-- @keyframes mymove { -->
+                <!-- from { -->
+                    <!-- text-indent: 100%; -->
+                <!-- } -->
+                <!-- to { -->
+                    <!-- text-indent: 0; -->
+                <!-- } -->
+            <!-- } -->
+            /* Make it pretty */
+            
+            .microsoft {
+                padding-left: 1.5em;
+                position: relative;
+                font: 16px 'Segoe UI', Tahoma, Helvetica, Sans-Serif;
+                color: rgb(102, 102, 102);
+                background: rgb(255, 248, 233) none repeat scroll 0% 0%;
+            }
+
+            
+            .microsoft:before,
+            .microsoft::before {
+                z-index: 2;
+                content: '';
+                position: absolute;
+                top: -1em;
+                left: -1em;
+                width: .5em;
+                height: .5em;
+            
+            }
+            
+            .microsoft:after,
+            .microsoft::after {
+                z-index: 1;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1.4em;
+                height: 1.4em;
+                background-size:18px 18px ;
+                
+            }
+        </style>
+    </head>
+ 
+    <body>
+        <div style = "border: 2px solid #0082df;padding: 10px 0;border-radius:10px;">
+            <div class="marquee">
+                <font id='update_tishi_font'>unknown</font>
+            </div>
+        </div>
+    </body>
+</html>
+ 
