@@ -1,5 +1,5 @@
 FROM centos:centos7.5.1804
-LABEL maintainer="lihaibin@nantian.com.cn"
+LABEL maintainer="xxx@xxx.com"
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 RUN curl -so /etc/yum.repos.d/Centos-7.repo http://mirrors.aliyun.com/repo/Centos-7.repo
