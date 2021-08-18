@@ -1,13 +1,15 @@
-ÖÜ±¨ÏµÍ³¾µÏñ»¯
-Dockerfile£º¹¹½¨ÎÄ¼ş
-run.sh£ºÈİÆ÷ÄÚÔËĞĞµÄ½Å±¾£¬Æô¶¯Ó¦ÓÃ
-requirement.txt£ºÒÀÀµ°ü
+å‘¨æŠ¥ç³»ç»Ÿé•œåƒåŒ–
+Dockerfileï¼šæ„å»ºæ–‡ä»¶
+run.shï¼šå®¹å™¨å†…è¿è¡Œçš„è„šæœ¬ï¼Œå¯åŠ¨åº”ç”¨
+requirement.txtï¼šä¾èµ–åŒ…
 
 docker build . -t zbxt:v2 -f Dockerfile
 docker run -d -p 8000:8000 --name test zbxt:v2
 docker exec -it test bash
 
-# ³õ´ÎÆô¶¯Ğè³õÊ¼»¯´´½¨Ò»Ğ©Êı¾İ¿â±í
+# åˆæ¬¡å¯åŠ¨éœ€åˆå§‹åŒ–åˆ›å»ºä¸€äº›æ•°æ®åº“è¡¨
+# ç”¨çš„mongodbæ•°æ®åº“ï¼Œè¿æ¥æ•°æ®åº“çš„æ–¹æ³•åœ¨views.pyæˆ–è€…settings.pyé‡Œé¢éœ€ä¿®æ”¹
+# éœ€è¦æ‰‹åŠ¨å»ºä¸€ä¸ªadminç”¨æˆ·db.user.insert({"username":"admin","real_name":"admin","password":"admin","user_role":"1","man_type":"1","status":"åœ¨èŒ"});
 #    python2 manage.py makemigrations
 #    python2 manage.py migrate
 #    python2 manage.py createsuperuser
